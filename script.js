@@ -1,0 +1,3 @@
+function tableClick() {
+    alert("CLICKED");
+}

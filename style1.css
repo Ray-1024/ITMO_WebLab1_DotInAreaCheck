@@ -1,29 +1,6 @@
-form {
-    background-color: lightyellow;
-    padding: 10px;
-}
-div.circle{
-    float: left; /*Задаем обтекание*/
-    line-height: 100%; /*Высота строки +  верт. центрирования текста*/
-    font-size: 30px;
-    background: gray;
-    color: white;
-    margin-top: 60px;
-    width: 10%; /*Фиксируем ширину блока*/
-    margin-right: 10px;
-    text-align: center; /*Центрируем текст по горизонтали*/
-}
-body{
-    background-color: gray;
-}
-div.wrap {
-    width: 70%;/*фиксируем ширину обертки*/
-    margin: 0 auto;/*центрируем ее*/
-    background: darkgray;
-    height: 120px;/*Задаем высоту обертки*/
-}
-div.hat{
-    background-color: lightyellow;
-    margin: 10px;
+/*
+<link rel="stylesheet" type="text/css" href="style1.css">
 
-}
+#05386B - #379683 - #5CDB95 - #8EE4AF - #EDF5E1
+
+*/
