@@ -24,6 +24,7 @@ if (isset($_POST["xRadio"]) && isset($_POST["yText"]) && isset($_POST["rCheckbox
     foreach ($_POST["rCheckbox"] as $i) {
         $rCheckbox = floatval($i);
     }
+
     echo '( ' . $xRadio . ' , ' . $yText . ' ) Radius: ' . $rCheckbox . PHP_EOL;
     if (check($xRadio, $yText, $rCheckbox)) {
         echo 'YES';

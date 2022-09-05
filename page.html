@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
+    <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
 <div id="hatBlock" class="hat">
@@ -37,13 +37,13 @@
             <div><input type="checkbox" name="rCheckbox[]" value="5">5</div>
         </div>
 
-        <button type="submit">
+        <button id="submitButton" type="submit">
             I'm submit button
         </button>
     </form>
 </div>
 <div id="resultBlock">
-    <table id="resultTable" border="1px" onclick="tableClick()">
+    <table id="resultTable" border="1px">
         <tr id="hatOfTable">
             <th>Номер запроса</th>
             <th>Дата и время запроса</th>
