@@ -56,7 +56,9 @@ function func()
     date_default_timezone_set('Europe/Moscow');
     $pageFilename = __DIR__ . '/page.html';
     $resultsFilename = __DIR__ . '/results.txt';
+
     $document = new DOMDocument();
+
     $document->loadHTMLFile($pageFilename);
 
 
@@ -70,19 +72,20 @@ function func()
             $rCheckbox = floatval($i);
             break;
         }
+        if ($rCheckbox >= -3.0 && $rCheckbox <= 5.0) {
 
-        $resultOfTest = check($xRadio, $yText, $rCheckbox);
-        $resultStr = "Точка попала в область";
-        if ($resultOfTest) {
+            $resultOfTest = check($xRadio, $yText, $rCheckbox);
             $resultStr = "Точка не попала в область";
+            if ($resultOfTest) {
+                $resultStr = "Точка попала в область";
+            }
+
+            $arr = loadResultsArray($resultsFilename);
+            array_push($arr, array("" . (count($arr) + 1), date('m/d/Y h:i:s a', time()), "" . (microtime(true) - $curr), "" . $xRadio, "" . $yText, "" . $rCheckbox, $resultStr));
+            fillResultsTable($document, $arr);
+            saveResultsArray($arr, $resultsFilename);
         }
-
-        $arr = loadResultsArray($resultsFilename);
-        array_push($arr, array("" . (count($arr) + 1), date('m/d/Y h:i:s a', time()), "" . (microtime(true) - $curr), "" . $xRadio, "" . $yText, "" . $rCheckbox, $resultStr));
-        fillResultsTable($document, $arr);
-        saveResultsArray($arr, $resultsFilename);
     }
-
     echo $document->saveHTML();
 }
 

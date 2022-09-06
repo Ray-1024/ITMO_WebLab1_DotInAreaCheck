@@ -4,27 +4,58 @@
 #05386B - #379683 - #5CDB95 - #8EE4AF - #EDF5E1
 
 */
-
+html {
+    color: #5CDB95;
+}
 
 td {
     text-align: center;
 }
 
-table {
+div {
+    text-align: center;
     border-width: 1px;
+    border-color: #05386B;
 }
 
-div.hugeblock { /* CLASS_SELECTOR border-width: 1 px;*/
-    border-style: dotted;
+table { /* SELECTOR_ELEMENT */
+    border-width: 1px;
+    border-color: black;
+    color: #05386B !important;
+    margin: 20px auto;
+}
+
+div.hugeblock { /* SELECTOR_CLASS */
+    text-align: center !important;
     border-radius: 15px;
+    border-style: solid;
+    border-width: 1px;
     width: 60%;
-    margin: 15px auto;
+    margin: 20px auto;
+    padding: 10px;
 }
 
-tr:nth-child(odd) { /*SELECTOR_PSEUDO_ELEMENT*/
-    background-color: #05386B;
+div.resultTitle{
+    font-family: serif;
+    color: #379683;
+    font-size: 20px;
 }
 
-tr:nth-child(even) { /*SELECTOR_PSEUDO_ELEMENT*/
-    background-color: #379683;
+/*
+tr:nth-child(odd) { /* SELECTOR_PSEUDO_CLASS
+    color: #379683 !important;
+}*/
+
+tr:nth-child(even) { /* SELECTOR_PSEUDO_CLASS */
+    color: #5CDB95 !important;
+}
+
+#hatBlock { /* SELECTOR_ID */
+    font-family: serif;
+    color: #379683;
+    font-size: 20px;
+}
+
+input.submit {
+    border-radius: 10px;
 }
