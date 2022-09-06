@@ -16,6 +16,7 @@ div {
     text-align: center;
     border-width: 1px;
     border-color: #05386B;
+    margin: 1px;
 }
 
 table { /* SELECTOR_ELEMENT */
@@ -35,7 +36,7 @@ div.hugeblock { /* SELECTOR_CLASS */
     padding: 10px;
 }
 
-div.resultTitle{
+div.resultTitle {
     font-family: serif;
     color: #379683;
     font-size: 20px;
@@ -56,6 +57,18 @@ tr:nth-child(even) { /* SELECTOR_PSEUDO_CLASS */
     font-size: 20px;
 }
 
+#hatBlock::first-letter { /* SELECTOR_PSEUDO_ELEMENT */
+    color: red;
+}
+
 input.submit {
     border-radius: 10px;
+}
+
+#yText {
+    border-radius: 5px;
+}
+
+#submitButton {
+    border-radius: 5px;
 }

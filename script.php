@@ -72,7 +72,7 @@ function func()
             $rCheckbox = floatval($i);
             break;
         }
-        if ($rCheckbox >= -3.0 && $rCheckbox <= 5.0) {
+        if ($yText >= -3.0 && $yText <= 5.0 && $xRadio >= -2.0 && $xRadio <= 2.0 && $rCheckbox >= 1.0 && $rCheckbox <= 5.0) {
 
             $resultOfTest = check($xRadio, $yText, $rCheckbox);
             $resultStr = "Точка не попала в область";
