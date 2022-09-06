@@ -17,20 +17,6 @@ function check($x, $y, $r)
 
 function loadResultsArray($filename)
 {
-    /*$filename = __DIR__ . '/results.txt';
-    $text = file_get_contents($filename);
-    if ($text == false) {
-        return array();
-    } else {
-        $lines = preg_split("\n", $text);
-
-        if ($lines == null) return array();
-        for ($i = 0; $i < count($lines); $i++) {
-            $lines[i] = preg_split(" ", $lines[i]);
-            if ($lines[i] == false) return array();
-        }
-        return $lines;
-    }*/
     $text = file_get_contents($filename);
     if ($text == false) return array();
     $array = unserialize(base64_decode($text));
@@ -66,6 +52,7 @@ function fillResultsTable($document, $resultsArray)
 
 function func()
 {
+    $curr = microtime(true);
     date_default_timezone_set('Europe/Moscow');
     $pageFilename = __DIR__ . '/page.html';
     $resultsFilename = __DIR__ . '/results.txt';
@@ -91,7 +78,7 @@ function func()
         }
 
         $arr = loadResultsArray($resultsFilename);
-        array_push($arr, array("" . (count($arr) + 1), date('m/d/Y h:i:s a', time()), "" . microtime(true), "" . $xRadio, "" . $yText, "" . $rCheckbox, $resultStr));
+        array_push($arr, array("" . (count($arr) + 1), date('m/d/Y h:i:s a', time()), "" . (microtime(true) - $curr), "" . $xRadio, "" . $yText, "" . $rCheckbox, $resultStr));
         fillResultsTable($document, $arr);
         saveResultsArray($arr, $resultsFilename);
     }

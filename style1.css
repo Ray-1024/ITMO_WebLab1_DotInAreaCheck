@@ -5,13 +5,26 @@
 
 */
 
-div {
-    border-width: 1px;
-    border-style: dotted;
-    width: 60%;
-    margin: 0 auto;
-}
 
 td {
     text-align: center;
+}
+
+table {
+    border-width: 1px;
+}
+
+div.hugeblock { /* CLASS_SELECTOR border-width: 1 px;*/
+    border-style: dotted;
+    border-radius: 15px;
+    width: 60%;
+    margin: 15px auto;
+}
+
+tr:nth-child(odd) { /*SELECTOR_PSEUDO_ELEMENT*/
+    background-color: #05386B;
+}
+
+tr:nth-child(even) { /*SELECTOR_PSEUDO_ELEMENT*/
+    background-color: #379683;
 }

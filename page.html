@@ -7,10 +7,13 @@
     <link href="style1.css" rel="stylesheet">
 </head>
 <body>
-<div id="hatBlock" class="hat">
+<div id="hatBlock" class="hugeblock">
     <span>Сковородников Дмитрий Алексеевич, Группа P32111, Вариант 1713</span>
 </div>
-<div id="formBlock">
+<div id="plotBlock">
+
+</div>
+<div id="formBlock" class="hugeblock">
     <form method="post" action="script.php" name="xyzForm">
         <div id="xBlock" class="wrap">
             X:
@@ -27,7 +30,7 @@
         </div>
         <div id="yBlock">
             Y:
-            <input type="text" id="yText" name="yText" pattern="\-?\d+(\.\d+)?">
+            <input type="text" id="yText" name="yText" pattern="\-?\d+(\.\d+)?" placeholder="-3 ≤ y ≤ 5">
         </div>
         <div id="rBlock">
             R:
@@ -43,8 +46,8 @@
         </button>
     </form>
 </div>
-<div id="resultBlock">
-    <table id="resultTable" border="1px">
+<div id="resultBlock" class="hugeblock">
+    <table id="resultTable">
         <tr id="hatOfTable">
             <th>Номер запроса</th>
             <th>Дата и время запроса</th>
