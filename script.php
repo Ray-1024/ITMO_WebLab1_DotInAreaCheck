@@ -66,7 +66,6 @@ function fillResultsTable($document, $resultsArray)
 
 function func()
 {
-    $currTime = microtime();
     date_default_timezone_set('Europe/Moscow');
     $pageFilename = __DIR__ . '/page.html';
     $resultsFilename = __DIR__ . '/results.txt';
@@ -85,7 +84,6 @@ function func()
             break;
         }
 
-        echo '( ' . $xRadio . ' , ' . $yText . ' ) Radius: ' . $rCheckbox . PHP_EOL;
         $resultOfTest = check($xRadio, $yText, $rCheckbox);
         $resultStr = "Точка попала в область";
         if ($resultOfTest) {
@@ -93,7 +91,7 @@ function func()
         }
 
         $arr = loadResultsArray($resultsFilename);
-        array_push($arr, array("" . (count($arr) + 1), date('m/d/Y h:i:s a', time()), "" . , "" . $xRadio, "" . $yText, "" . $rCheckbox, $resultStr));
+        array_push($arr, array("" . (count($arr) + 1), date('m/d/Y h:i:s a', time()), "" . microtime(true), "" . $xRadio, "" . $yText, "" . $rCheckbox, $resultStr));
         fillResultsTable($document, $arr);
         saveResultsArray($arr, $resultsFilename);
     }
