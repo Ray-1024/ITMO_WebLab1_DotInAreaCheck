@@ -4,3 +4,14 @@
 #05386B - #379683 - #5CDB95 - #8EE4AF - #EDF5E1
 
 */
+
+div {
+    border-width: 1px;
+    border-style: dotted;
+    width: 60%;
+    margin: 0 auto;
+}
+
+td {
+    text-align: center;
+}
