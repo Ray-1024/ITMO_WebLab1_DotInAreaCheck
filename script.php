@@ -85,6 +85,10 @@ function func()
             fillResultsTable($document, $arr);
             saveResultsArray($arr, $resultsFilename);
         }
+    } else {
+        $arr = loadResultsArray($resultsFilename);
+        fillResultsTable($document, $arr);
+        saveResultsArray($arr, $resultsFilename);
     }
     echo $document->saveHTML();
 }
