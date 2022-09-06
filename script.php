@@ -53,37 +53,25 @@ function fillResultsTable($document, $resultsArray)
     if ($table == null) return;
 
     for ($i = 0; $i < count($resultsArray); ++$i) {
-        ///////////////////////////////////////////////////////////////////////////////////////
-        $newLine = new DOMElement("tr");
-        $cellNumber = new DOMElement("td");
-        $cellDateTime = new DOMElement("td");
-        $cellX = new DOMElement("td");
-        $cellY = new DOMElement("td");
-        $cellR = new DOMElement("td");
-        $cellResponse = new DOMElement("td");
-        ///////////////////////////////////////////////////////////////////////////////////////
-        $table->appendChild($newLine);
-        $newLine->appendChild($cellNumber);
-        $newLine->appendChild($cellDateTime);
-        $newLine->appendChild($cellX);
-        $newLine->appendChild($cellY);
-        $newLine->appendChild($cellR);
-        $newLine->appendChild($cellResponse);
-        //////////////////////////////////////////////////////////////////////////////////////
-        $cellNumber->textContent = "6";
-        $cellDateTime->textContent = "5";
-        $cellX->textContent = "4";
-        $cellY->textContent = "3";
-        $cellR->textContent = "2";
-        $cellResponse->textContent = "1";
+
+        $line = new DOMElement("tr");
+        $table->appendChild($line);
+        for ($j = 0; $j < count($resultsArray[$i]); ++$j) {
+            $cell = new DOMElement("td");
+            $cell->textContent = $resultsArray[$i][$j];
+            $line->appendChild($cell);
+        }
     }
 }
 
 function func()
 {
-    $filename = __DIR__ . '/page.html';
+    $currTime = microtime();
+    date_default_timezone_set('Europe/Moscow');
+    $pageFilename = __DIR__ . '/page.html';
+    $resultsFilename = __DIR__ . '/results.txt';
     $document = new DOMDocument();
-    $document->loadHTMLFile($filename);
+    $document->loadHTMLFile($pageFilename);
 
 
     if (isset($_POST["xRadio"]) && isset($_POST["yText"]) && isset($_POST["rCheckbox"]) && count($_POST["rCheckbox"]) == 1) {
@@ -94,16 +82,20 @@ function func()
 
         foreach ($_POST["rCheckbox"] as $i) {
             $rCheckbox = floatval($i);
+            break;
         }
 
-        /*echo '( ' . $xRadio . ' , ' . $yText . ' ) Radius: ' . $rCheckbox . PHP_EOL;
-        if (check($xRadio, $yText, $rCheckbox)) {
-            echo 'YES';
-        } else echo 'NO';*/
+        echo '( ' . $xRadio . ' , ' . $yText . ' ) Radius: ' . $rCheckbox . PHP_EOL;
+        $resultOfTest = check($xRadio, $yText, $rCheckbox);
+        $resultStr = "Точка попала в область";
+        if ($resultOfTest) {
+            $resultStr = "Точка не попала в область";
+        }
 
-        $arr = loadResultsArray($filename);
+        $arr = loadResultsArray($resultsFilename);
+        array_push($arr, array("" . (count($arr) + 1), date('m/d/Y h:i:s a', time()), "" . , "" . $xRadio, "" . $yText, "" . $rCheckbox, $resultStr));
         fillResultsTable($document, $arr);
-        saveResultsArray($arr, $filename);
+        saveResultsArray($arr, $resultsFilename);
     }
 
     echo $document->saveHTML();
